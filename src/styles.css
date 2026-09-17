@@ -1,0 +1,188 @@
+:root {
+  color-scheme: dark;
+  --bg: #16110c;
+  --panel: #231a12;
+  --ink: #f4ead2;
+  --muted: #cbb892;
+  --accent: #e2b340;
+  --good: #6db24a;
+  --bad: #d45b4a;
+  --line: #3a2c1c;
+  font-family: "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 500px at 20% -10%, #3a2a12 0%, transparent 50%),
+    var(--bg);
+  color: var(--ink);
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 18px 28px;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo { font-size: 36px; filter: drop-shadow(0 4px 0 #0003); }
+h1 { margin: 0; font-size: 28px; letter-spacing: 0.02em; }
+h1 small { color: var(--accent); font-size: 18px; margin-left: 6px; }
+.tagline { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: #2a2016;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 650;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.active { outline: 2px solid var(--accent); }
+.btn.primary { background: #6a4a12; border-color: var(--accent); color: #fff6d2; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+.canvas-wrap {
+  position: relative;
+  background: #0d0a07;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px #0006;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+
+.hint { color: var(--muted); font-size: 12px; margin: 8px 2px 0; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #120e0a88;
+  backdrop-filter: blur(4px);
+}
+.overlay.hidden { display: none; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 26px;
+  text-align: center;
+  min-width: 260px;
+}
+.card.win { box-shadow: 0 0 0 2px #6db24a66; }
+.card.lose { box-shadow: 0 0 0 2px #d45b4a66; }
+.card h2 { margin: 0 0 8px; }
+.card p { margin: 0 0 14px; color: var(--muted); }
+
+.brain {
+  background: linear-gradient(180deg, #2a1f14, #1a140e);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 14px 16px;
+}
+.brain h2 { margin: 0; font-size: 16px; }
+.brain-sub { margin: 2px 0 12px; color: var(--muted); font-size: 11px; }
+.panel-block { margin-top: 12px; }
+.panel-block h3 {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ch { margin-bottom: 8px; }
+.ch-lab {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+.ch-lab small { color: var(--muted); }
+.bar {
+  height: 8px;
+  background: #3a2c1c;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #c9843f, #e2b340);
+  width: 0;
+}
+
+.decision {
+  font-size: 14px;
+  padding: 8px 10px;
+  background: #120e0a;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.motors { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.motor {
+  font-size: 11px;
+  padding: 8px 4px;
+  text-align: center;
+  border-radius: 8px;
+  background: #120e0a;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.motor b {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4a3a28;
+  margin: 0 auto 4px;
+}
+.motor.on { color: var(--ink); border-color: var(--good); }
+.motor.on b { background: var(--good); box-shadow: 0 0 8px var(--good); }
+
+blockquote {
+  margin: 0;
+  padding: 10px 12px;
+  background: #fff8e8;
+  color: #2a1c0c;
+  border-radius: 8px;
+  font-size: 15px;
+  min-height: 48px;
+}
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+}

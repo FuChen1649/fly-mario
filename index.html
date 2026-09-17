@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fly Mario · 果蝇闯关</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='16' fill='%23e8b84a'/%3E%3Ccircle cx='24' cy='28' r='8' fill='%23d22b2b'/%3E%3Ccircle cx='40' cy='28' r='8' fill='%23d22b2b'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">🪰</span>
+          <div>
+            <h1>Fly Mario <small>果蝇闯关</small></h1>
+            <p class="tagline">感知 → 决策 → 动作 · 离线启发式果蝇 Agent</p>
+          </div>
+        </div>
+        <div class="controls" id="controls">
+          <button type="button" id="btn-manual" class="btn active">手动 Manual</button>
+          <button type="button" id="btn-auto" class="btn primary">自动果蝇 Auto Fly</button>
+          <button type="button" id="btn-retry" class="btn">重试 Retry</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <section class="stage">
+          <div class="canvas-wrap">
+            <canvas id="game" width="960" height="540"></canvas>
+            <div id="overlay" class="overlay hidden"></div>
+          </div>
+          <p class="hint">
+            键盘：← → / A D 移动，空格 / K / W 跳跃。自动模式由果蝇启发式规划器通关（无需真实 13.8 万神经元模拟）。
+          </p>
+        </section>
+
+        <aside class="brain" id="brain">
+          <h2>Fly Brain Readout</h2>
+          <p class="brain-sub">隐喻神经读出 · 非 FlyWire 权重</p>
+          <div class="panel-block">
+            <h3>Sensory 感觉通道</h3>
+            <div id="channels" class="channels"></div>
+          </div>
+          <div class="panel-block">
+            <h3>Decision 决策</h3>
+            <div id="decision" class="decision">待机</div>
+          </div>
+          <div class="panel-block">
+            <h3>Motor 运动输出</h3>
+            <div id="motors" class="motors"></div>
+          </div>
+          <div class="panel-block speech">
+            <h3>Talking Fly 旁白</h3>
+            <blockquote id="speech">气味在前面。出发。</blockquote>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
