@@ -1,0 +1,19 @@
+{
+  "name": "fly-mario",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Fly Mario — fruit-fly LIF circuit plays a Mario-style platformer; the LLM is not the joystick.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "sim": "vitest run tests/agent-clear.test.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^6.0.7",
+    "vitest": "^3.0.4"
+  }
+}
